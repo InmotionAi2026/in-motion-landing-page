@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IN MOTION | AI Video Lab - לעשות קולנוע ללא מצלמה</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#121212',
+                        brandCard: '#1E1E1E',
+                        brandRed: '#9A1515',
+                        brandOrange: '#FF7200',
+                        brandYellow: '#FFE400',
+                    },
+                    fontFamily: {
+                        sans: ['Rubik', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #FFFFFF;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .cinematic-glow {
+            box-shadow: 0 0 50px rgba(154, 21, 21, 0.25);
+        }
+
+        .orange-glow:hover {
+            box-shadow: 0 0 25px rgba(255, 114, 0, 0.5);
+        }
+
+        .hero-bg {
+            background: radial-gradient(circle at top, #2d0606 0%, #121212 70%);
+        }
+
+        .card-border {
+            border: 1px solid rgba(255, 114, 0, 0.2);
+        }
+
+        .card-border:hover {
+            border-color: rgba(255, 114, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brandOrange selection:text-black">
+
+    <!-- Header / Hero Section -->
+    <header class="hero-bg border-b-4 border-brandOrange pt-12 pb-16 px-4 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <!-- Badge -->
+            <div class="inline-block bg-black text-brandYellow border border-brandOrange font-black tracking-widest px-4 py-1.5 rounded-full text-sm md:text-base mb-4 shadow-lg">
+                AI VIDEO LAB IN MOTION
+            </div>
+            
+            <!-- Sub Header -->
+            <p class="text-brandYellow font-medium text-lg md:text-xl mb-6 opacity-90">
+                לשעבר ג'אמפ קאט, בניהולה של תמר ירון
+            </p>
+
+            <!-- Main Title -->
+            <h1 class="text-4xl md:text-6xl font-black text-brandYellow mb-4 tracking-tight drop-shadow-md">
+                לעשות קולנוע ללא מצלמה
+            </h1>
+
+            <!-- Tagline -->
+            <p class="text-xl md:text-2xl font-bold text-white max-w-2xl mx-auto">
+                לימודי בינה מלאכותית לסרטים (AI)
+            </p>
+        </div>
+
+        <!-- Decorative Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-brandRed rounded-full blur-[120px] opacity-30 pointer-events-none"></div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-3xl mx-auto px-4 py-10 w-full space-y-10 flex-grow">
+
+        <!-- QA Section -->
+        <section class="bg-brandCard card-border rounded-2xl p-6 md:p-8 shadow-2xl relative border-r-8 border-r-brandOrange transition-all duration-300">
+            
+            <div class="flex items-center gap-2 text-brandOrange font-bold text-sm md:text-base mb-2">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                </svg>
+                <span>מדור שאלות ותשובות | עם העורך והבמאי רעי אוריון</span>
+            </div>
+
+            <h2 class="text-2xl md:text-3xl font-black text-brandYellow mb-6 leading-snug">
+                "מה התרומה של כלי ה-AI להפקת הסרטים?"
+            </h2>
+
+            <!-- Interactive Toggle Buttons -->
+            <div class="flex flex-wrap gap-3 mb-6 bg-black/40 p-1.5 rounded-xl border border-white/10 w-fit">
+                <button id="btn-full" onclick="switchVersion('full')" class="px-5 py-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200 bg-brandOrange text-black shadow-md">
+                    תשובה מלאה
+                </button>
+                <button id="btn-short" onclick="switchVersion('short')" class="px-5 py-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200 text-gray-300 hover:text-white hover:bg-white/5">
+                    גרסה קצרה (30 מילים)
+                </button>
+            </div>
+
+            <!-- Full Content -->
+            <div id="text-full" class="text-gray-200 text-base md:text-lg leading-relaxed space-y-4">
+                <p>
+                    <strong class="text-white">רעי אוריון מסביר:</strong> כיום AI משמש בעיקר בשלבי הקדם-הפקה (Storyboard, קונספט-ארט, הדמיות לוקיישן).
+                </p>
+                <p>
+                    הקורס שלנו ייתן לכם מיומנות בעבודה מתקדמת עם כלים כגון Midjourney, Nano Banana, Claude, Krea ו-Weavy שיאפשרו לכם לתכנן את הכול עד הפרטים הקטנים ביותר: "להלביש" את השחקנים ולמקמם בלוקיישן עצמו, לבנות סטוריבורד מפורט, לגבש שפה סגנונית שלמה שתשמש כבסיס לכל ההחלטות לעיצוב הסט, לתכנן תקציב ועוד.
+                </p>
+                <p>
+                    ברגע שיש לכם את היכולת להראות מה אתם רוצים ולא רק להסביר את זה במילים, השיחה נהיית הרבה יותר מדויקת – גם עבורכם בתהליך הבירור של החזון שלכם וגם ביכולת שלכם להסביר את החזון הזה לשאר הצוות.
+                </p>
+                <p class="font-semibold text-brandYellow">
+                    האפשרויות הן רבות והן רק מתרבות עם הזמן. לכן, זאת "עגלה" שמי שלא יקפוץ עליה בהקדם ימצא את עצמו לבטח מאחור.
+                </p>
+            </div>
+
+            <!-- Short Content (Hidden by default) -->
+            <div id="text-short" class="text-gray-200 text-base md:text-lg leading-relaxed hidden space-y-3">
+                <p>
+                    בקורס תלמדו לעבוד עם <span class="text-brandYellow font-medium">Midjourney, Nano Banana, Claude, Krea ו-Weavy</span> ולתכנן הכול: תלבושות ולוקיישן, סטוריבורד, שפה סגנונית ותקציב.
+                </p>
+                <p>
+                    כשמראים ולא רק מסבירים, החזון מתחדד, לכם ולצוות. העגלה יוצאת, אל תישארו מאחור! בואו ללמוד איך עושים קולנוע בלי מצלמה.
+                </p>
+            </div>
+        </section>
+
+        <!-- Tools Banner -->
+        <section class="bg-gradient-to-r from-brandRed to-brandOrange rounded-2xl p-6 text-center shadow-lg transform hover:-translate-y-0.5 transition-transform">
+            <h3 class="text-white font-bold text-lg md:text-xl mb-3">
+                בקורס תלמדו לשלוט בכלים המובילים בתעשייה:
+            </h3>
+            <div class="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-brandYellow font-black text-lg md:text-2xl">
+                <span>Midjourney</span>
+                <span class="text-white/60 text-sm">•</span>
+                <span>Claude</span>
+                <span class="text-white/60 text-sm">•</span>
+                <span>Nano Banana</span>
+                <span class="text-white/60 text-sm">•</span>
+                <span>Krea</span>
+                <span class="text-white/60 text-sm">•</span>
+                <span>Weavy</span>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section class="bg-gradient-to-b from-brandCard to-black border-2 border-brandOrange/60 rounded-2xl p-6 md:p-10 shadow-2xl relative overflow-hidden cinematic-glow">
+            
+            <div class="text-center mb-8">
+                <div class="inline-block bg-brandRed text-white font-black px-4 py-1 rounded-md text-sm mb-3 uppercase tracking-wider">
+                    מחזור קרוב
+                </div>
+                <h2 class="text-3xl md:text-4xl font-black text-brandYellow mb-2">
+                    מתחילים ב-5.11
+                </h2>
+                <p class="text-gray-300 text-base md:text-lg">
+                    הקורס מותאם לעורכים לתעשייה ולאולפני חדשות. השאירו פרטים לשמירת מקום:
+                </p>
+            </div>
+
+            <form onsubmit="handleFormSubmit(event)" class="space-y-5 max-w-md mx-auto">
+                <div>
+                    <label for="fullname" class="block text-right font-bold text-sm text-gray-300 mb-2">
+                        שם מלא <span class="text-brandOrange">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="fullname" 
+                        required 
+                        placeholder="ישראל ישראלי" 
+                        class="w-full bg-brandDark/80 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-brandOrange focus:ring-1 focus:ring-brandOrange transition"
+                    >
+                </div>
+
+                <div>
+                    <label for="phone" class="block text-right font-bold text-sm text-gray-300 mb-2">
+                        מספר טלפון <span class="text-brandOrange">*</span>
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        required 
+                        placeholder="050-0000000" 
+                        class="w-full bg-brandDark/80 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-brandOrange focus:ring-1 focus:ring-brandOrange transition text-right"
+                        dir="rtl"
+                    >
+                </div>
+
+                <div>
+                    <label for="email" class="block text-right font-bold text-sm text-gray-300 mb-2">
+                        כתובת אימייל <span class="text-brandOrange">*</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        required 
+                        placeholder="your@email.com" 
+                        class="w-full bg-brandDark/80 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder-gray-500 focus:outline-none focus:border-brandOrange focus:ring-1 focus:ring-brandOrange transition text-left"
+                        dir="ltr"
+                    >
+                </div>
+
+                <button 
+                    type="submit" 
+                    class="w-full bg-gradient-to-r from-brandOrange to-brandYellow text-black font-black text-xl py-4 rounded-xl shadow-lg hover:brightness-110 active:scale-[0.99] transition transform duration-150 orange-glow mt-4 cursor-pointer"
+                >
+                    שמירת מקום בקורס
+                </button>
+            </form>
+
+            <p id="form-status" class="text-center text-sm text-brandYellow mt-4 hidden">
+                
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-black/60 py-6 text-center text-gray-400 text-sm px-4">
+        <p>© IN MOTION - בית ספר לקולנוע ובינה מלאכותית | בניהולה של תמר ירון</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Toggle Logic for QA Section
+        function switchVersion(type) {
+            const textFull = document.getElementById('text-full');
+            const textShort = document.getElementById('text-short');
+            const btnFull = document.getElementById('btn-full');
+            const btnShort = document.getElementById('btn-short');
+
+            if (type === 'full') {
+                textFull.classList.remove('hidden');
+                textShort.classList.add('hidden');
+                
+                // Active Button styling
+                btnFull.className = "px-5 py-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200 bg-brandOrange text-black shadow-md";
+                btnShort.className = "px-5 py-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200 text-gray-300 hover:text-white hover:bg-white/5";
+            } else {
+                textFull.classList.add('hidden');
+                textShort.classList.remove('hidden');
+                
+                // Active Button styling
+                btnShort.className = "px-5 py-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200 bg-brandOrange text-black shadow-md";
+                btnFull.className = "px-5 py-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200 text-gray-300 hover:text-white hover:bg-white/5";
+            }
+        }
+
+        // Form Submit Handler (Wix Velo messaging)
+      
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('fullname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const statusEl = document.getElementById('form-status');
+    const button = event.target.querySelector('button[type="submit"]');
+
+    if (!name || !phone || !email) {
+        statusEl.textContent = 'יש למלא את כל השדות';
+        statusEl.classList.remove('hidden');
+        return;
+    }
+
+    button.disabled = true;
+    statusEl.textContent = 'שולח את הפרטים, נא להמתין...';
+    statusEl.classList.remove('hidden');
+
+    window.parent.postMessage({
+        type: 'REGISTER',
+        name: name,
+        phone: phone,
+        email: email
+    }, '*');
+}
+
+window.addEventListener('message', function(event) {
+    const data = event.data;
+
+    if (!data || data.type !== 'REGISTER_RESULT') {
+        return;
+    }
+
+    const statusEl = document.getElementById('form-status');
+    const button = document.querySelector('form button[type="submit"]');
+
+    if (data.success) {
+        statusEl.textContent = data.emailSent === false
+            ? 'הפרטים נשמרו בהצלחה, אך הייתה בעיה בשליחת ההודעה לצוות. ניצור איתך קשר בהקדם.'
+            : 'תודה! הפרטים התקבלו בהצלחה. ניצור איתך קשר בהקדם.';
+        document.querySelector('form').reset();
+    } else {
+        statusEl.textContent = 'אירעה שגיאה בשליחה. אנא נסו שוב.';
+    }
+
+    button.disabled = false;
+});
+
+    </script>
+</body>
+</html>
